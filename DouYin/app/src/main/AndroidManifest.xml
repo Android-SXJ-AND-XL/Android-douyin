@@ -22,6 +22,7 @@
     <!--自动聚焦-->
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+
     <uses-permission android:name="android.permission.WRITE_SETTINGS" tools:ignore="ProtectedPermissions" />
 
     <!--不知道是否要加android:name=".MainApplication"-->
@@ -43,9 +44,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SearchActivity"/>
         <activity android:name=".activities.CameraActivity"/>
+        <activity android:name=".activities.EmbedCameraActivity"/>
         <activity android:name=".activities.PlayActivity"/>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
     </application>
 
 </manifest>

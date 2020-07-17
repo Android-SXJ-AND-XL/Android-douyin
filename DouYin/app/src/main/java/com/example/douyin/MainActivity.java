@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.douyin.activities.CameraActivity;
+import com.example.douyin.activities.EmbedCameraActivity;
 import com.example.douyin.fragments.InfoFragment;
 import com.example.douyin.fragments.MainFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 				if (position == 0) {
 					ret = "首页";
 				} else if (position == 1) {
-					ret = "我的";
+					ret = "我";
 				}
 				return ret;
 			}
@@ -71,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
 		if(requestCode == MainFragment.REQUEST_CODE_FOR_CAMERA) {
 			if (resultCode == RESULT_OK) {
 				makeToast("上传成功");
-			} else if (resultCode == CameraActivity.RESULT_PERMISSION_DENIED) {
+			} else if (resultCode == EmbedCameraActivity.RESULT_PERMISSION_DENIED) {
 				makeToast("权限获取失败");
-			} else if (resultCode == CameraActivity.RESULT_ERROR) {
+			} else if (resultCode == EmbedCameraActivity.RESULT_ERROR) {
 				makeToast("未知错误");
 			}
 		}

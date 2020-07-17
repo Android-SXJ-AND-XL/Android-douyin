@@ -1,37 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
 	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		android:layout_height="wrap_content"
+		android:background="@color/black">
 
 		<ImageButton
 			android:id="@+id/fragment_main_tv_photo"
-			android:layout_width="wrap_content"
+			android:layout_width="48dp"
 			android:layout_height="match_parent"
-			android:src="@drawable/newpost"
-			android:layout_margin="10dp"
-			android:scaleType="centerInside"
 			android:background="@null"
-			android:gravity="center" />
+			android:gravity="center"
+			android:scaleType="centerInside"
+			android:src="@drawable/plus_slim" />
 
 		<com.google.android.material.tabs.TabLayout
 			android:id="@+id/fragment_main_tl"
 			android:layout_width="0dp"
+			android:background="@color/black"
+			app:tabTextColor="@color/white"
+			app:tabIndicatorColor="@color/white"
 			android:layout_weight="1"
 			android:layout_height="wrap_content" />
-
-		<ImageButton
-			android:id="@+id/fragment_main_tv_search"
-			android:layout_width="wrap_content"
-			android:layout_height="match_parent"
-			android:src="@drawable/search"
-			android:layout_margin="10dp"
-			android:scaleType="centerInside"
-			android:background="@null"
-			android:gravity="center" />
 
 	</LinearLayout>
 
@@ -39,6 +34,7 @@
 	<androidx.viewpager.widget.ViewPager
 		android:id="@+id/fragment_main_vp"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content" />
+		android:layout_height="wrap_content"
+		android:background="#161922"/>
 
 </LinearLayout>

@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.douyin.R;
+import com.example.douyin.fragments.VideoClipFragment;
 import com.example.douyin.fragments.VideoFragment;
 import com.example.douyin.model.Video;
 
@@ -45,7 +46,7 @@ public class PlayActivity extends AppCompatActivity
 			@Override
 			public Fragment getItem(int position)
 			{
-				return VideoFragment.launch(playList, startPosition, false);
+				return VideoClipFragment.launch(playList, startPosition, false);
 			}
 
 			@Override
