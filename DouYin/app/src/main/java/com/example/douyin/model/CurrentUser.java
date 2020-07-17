@@ -2,8 +2,8 @@ package com.example.douyin.model;
 
 public final class CurrentUser
 {
-	private static String Student_ID = "3113131313";
-	private static String Username = "useraaaa";
+	private static String Student_ID = "7777777";
+	private static String Username = "user007";
 
 	public static String getStudentID()
 	{

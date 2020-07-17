@@ -15,7 +15,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.douyin.R;
 import com.example.douyin.activities.CameraActivity;
 import com.example.douyin.activities.EmbedCameraActivity;
-import com.example.douyin.activities.SearchActivity;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainFragment extends Fragment {
@@ -25,7 +24,6 @@ public class MainFragment extends Fragment {
 	private static final int PAGE_COUNT = 2;
 
 	private ImageButton mPhoto;
-	private ImageButton mSearch;
 	private ViewPager mViewPager;
 	private TabLayout mTabLayout;
 
@@ -37,7 +35,6 @@ public class MainFragment extends Fragment {
 		mTabLayout = view.findViewById(R.id.fragment_main_tl);
 
 		mPhoto = view.findViewById(R.id.fragment_main_tv_photo);
-		mSearch = view.findViewById(R.id.fragment_main_tv_search);
 
 		mPhoto.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -46,19 +43,12 @@ public class MainFragment extends Fragment {
 			}
 		});
 
-		mSearch.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				SearchActivity.launch(getActivity());
-			}
-		});
 
 		mViewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
 			@Override
 			public Fragment getItem(int position) {
 				Fragment ret = null;
 				if (position == 0) {
-//					ret = VideoFragment.launch();
 					ret = VideoClipFragment.launch();
 				} else if (position == 1) {
 					ret = new NearbyFragment();
@@ -78,7 +68,7 @@ public class MainFragment extends Fragment {
 				if (position == 0) {
 					ret = "推荐";
 				} else if (position == 1) {
-					ret = "同城";
+					ret = "列表";
 				}
 				return ret;
 			}

@@ -9,7 +9,6 @@ import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
@@ -28,19 +27,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.bumptech.glide.Glide;
-import com.cjt2325.cameralibrary.JCameraView;
 import com.example.douyin.R;
 import com.example.douyin.model.CurrentUser;
 import com.example.douyin.net.IMiniDouyinService;
-import com.example.douyin.net.NetManager;
-import com.example.douyin.net.OnNetListener;
 import com.example.douyin.net.response.PostVideoResponse;
 import com.example.douyin.utils.ResourceUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;

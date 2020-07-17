@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 				if (position == 0) {
 					ret = "首页";
 				} else if (position == 1) {
-					ret = "我的";
+					ret = "我";
 				}
 				return ret;
 			}

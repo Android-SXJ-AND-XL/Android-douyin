@@ -32,7 +32,6 @@ import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.utils.CommonUtil;
 
 import java.io.Serializable;
@@ -220,7 +219,7 @@ public class VideoClipFragment extends Fragment implements VideoClipRecyclerAdap
                 HistoryRecord historyRecord = new HistoryRecord(CurrentUser.getStudentID(), mVideoList.get(firstVisibleItem).getId(), sdf.format(new Date()));
                 mMiniDouYinDatabaseHelper.executeInsertHistory(historyRecord);
             }
-        }, 5000);
+        }, 1000);
     }
 
     public static VideoClipFragment launch() {
