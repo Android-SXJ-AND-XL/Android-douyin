@@ -38,8 +38,7 @@ public class VideoRecyclerAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                      int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.layout_rv_video, parent, false);
         final RecyclerView.ViewHolder holder = new VideoRecyclerItemHolder(mContext, v, mListeners);
         return holder;
@@ -59,10 +58,10 @@ public class VideoRecyclerAdapter extends RecyclerView.Adapter {
     }
 
 
-    @Override
-    public int getItemViewType(int position) {
-        return 1;
-    }
+//    @Override
+//    public int getItemViewType(int position) {
+//        return 1;
+//    }
 
     public void setListData(List<Video> data) {
         mItemDataList = data;

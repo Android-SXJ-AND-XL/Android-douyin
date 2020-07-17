@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.douyin.R;
 import com.example.douyin.adapter.VideoRecyclerAdapter;
 import com.example.douyin.db.CollectionRecord;
+import com.example.douyin.db.HistoryRecord;
 import com.example.douyin.db.MiniDouYinDatabaseHelper;
 import com.example.douyin.model.CurrentUser;
 import com.example.douyin.model.Video;
@@ -79,6 +80,7 @@ public class VideoFragment extends Fragment {
 		setOnClickListeners();
 		initRecyclerView();
 
+		//响应网络，获取视频
 		mNetManager.setOnGetListener(new OnNetListener() {
 			@Override
 			public void exec(Response<?> response) {
@@ -112,8 +114,7 @@ public class VideoFragment extends Fragment {
 //		});
 
 		if(canFresh) {
-			mRefreshLayout.setOnRefreshListener(new OnRefreshListener()
-			{
+			mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
 				@Override
 				public void onRefresh(@NonNull RefreshLayout refreshLayout)
 				{
@@ -156,6 +157,9 @@ public class VideoFragment extends Fragment {
 
 				firstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				HistoryRecord historyRecord = new HistoryRecord(CurrentUser.getStudentID(), mVideoList.get(firstVisibleItem).getId(), sdf.format(new Date()));
+				mMiniDouYinDatabaseHelper.executeInsertHistory(historyRecord);
+
 			}
 
 			@Override
@@ -185,11 +189,9 @@ public class VideoFragment extends Fragment {
 			}
 		};
 
-		mHeartOnClickListener = new View.OnClickListener()
-		{
+		mHeartOnClickListener = new View.OnClickListener() {
 			@Override
-			public void onClick(View v)
-			{
+			public void onClick(View v) {
 				if(((ShineButton)v).isChecked())
 					((ShineButton)v).setChecked(false);
 
@@ -214,6 +216,8 @@ public class VideoFragment extends Fragment {
 				LinearLayoutManager linearLayoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
 				int firstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				HistoryRecord historyRecord = new HistoryRecord(CurrentUser.getStudentID(), mVideoList.get(firstVisibleItem).getId(), sdf.format(new Date()));
+				mMiniDouYinDatabaseHelper.executeInsertHistory(historyRecord);
 			}
 		}, 1000);
 	}

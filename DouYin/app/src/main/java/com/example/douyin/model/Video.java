@@ -48,9 +48,7 @@ public class Video implements Serializable
 	@SerializedName("image_h")
 	private String mImageHeight;
 
-	public Video() {
-
-	}
+	public Video() {}
 
 	public Video(String studentId, String userName, String imageUrl, String videoUrl) {
 		mStudentId = studentId;
